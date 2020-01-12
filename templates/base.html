@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Neelkanth Gaming</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-show-password/1.0.3/bootstrap-show-password.min.js"></script>
+</head>
+<body>
+<a class="nav-link" href="{% url 'home' %}">Home</a>
+<a class="nav-link" href="{% url 'games_list' %}">Games</a>
+<a class="nav-link" href="{% url 'video_list' %}">Videos</a>
+<a class="nav-link" href="{% url 'jobs' %}">Jobs</a>
+<a class="nav-link" href="{% url 'communications' %}">Contact Us</a>
+{% if not user.is_authenticated %}
+        {% if messages %}
+        <div class="alert alert-warning alert-dismissible">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            <ul class="messages">
+                {% for message in messages %}
+                    <li class="{{ message.tags }}">{{ message }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+        {% endif %}
+<form method = "post" action="{% url 'user_login' %}">
+    {% csrf_token %}
+    <div class="form-group">
+        <input type="text" name="username" placeholder="Username" class="form-control">
+        <input type="password" id="password" name="password" class="form-control" data-toggle="password" placeholder="Password">
+    </div>
+    <input type="hidden" name="next" value="{{ request.path }}">
+    <input type="submit" name="" value="Login">
+</form>
+<a class="nav-link" href="{% url 'user_register' %}">Register</a>
+{% else %}
+<a class="nav-link" href="{% url 'user_logout' %}">Logout</a>
+{% endif %}
+{% if user.is_authenticated %}
+Hey {{ user.username }}
+{% endif %}
+{% block content %}
+{% endblock %}
+<script type="text/javascript">
+	$("#password").password('toggle');
+</script>
+</body>
+</html>
