@@ -1,6 +1,9 @@
+
 .ml1 {
   font-weight: 900;
   font-size: 3.5em;
+  background-color: blue;
+  float: center;
 }
 
 .ml1 .letter {

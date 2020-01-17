@@ -8,6 +8,8 @@
 
 </head>
 <body>
+  <div class="container">
+  <center>   
     <h1 class="ml1">
       <span class="text-wrapper">
         <span class="line line1"></span>
@@ -15,8 +17,10 @@
         <span class="line line2"></span>
       </span>
     </h1>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.2.0/anime.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.2.0/anime.min.js"></script>
     <script src="{% static 'js/index_landing_page.js' %}" ></script>
-    <a class="nav-link" href="{% url 'home' %}">Let's Go</a>
+    <a class="nav-link" class="btn btn-primary" href="{% url 'home' %}">Let's Go</a>
+      </center>
+    </div>
 </body>
 </html>

@@ -1,19 +1,21 @@
 {% extends 'base.html' %}
 
+   
 {% block content %}
 
-<h4>Registration</h4>
-<form method = "post" action="{% url 'user_register' %}" enctype="multipart/form-data" novalidate>
-    {% csrf_token %}
-    <input type="text" name="full_name" placeholder="Full Name">
-    <input type="text" name="email" placeholder="Email">
-    <input type="text" name="country" placeholder="Country">
-    <input type="file" name="profile_pic" placeholder="Profile Pic">
-    <label for="is_subscribed">Subscribe to newsletter?</label>
-    <input type="checkbox" name="is_subscribed">
-    <input type="text" name="username" placeholder="Username">
-    <input type="password" name="password" placeholder="Password">
-    <input type="submit" name="" value="Register">
-</form>
+    <h4>Registration</h4>
+    <form method = "post" action="{% url 'user_register' %}" enctype="multipart/form-data" novalidate>
+            {% csrf_token %}
+        <input type="text" name="full_name" placeholder="Full Name"><br>
+        <input type="text" name="email" placeholder="Email"><br>
+        <input type="text" name="country" placeholder="Country"><br>
+        <input type="file" name="profile_pic" placeholder="Profile Pic"><br>
+        <label for="is_subscribed">Subscribe to newsletter?</label><br>
+        <input type="checkbox" name="is_subscribed"><br>
+        <input type="text" name="username" placeholder="Username"><br>
+        <input type="password" name="password" placeholder="Password"><br>
+        <input type="submit" name="" value="Register">
+   
+    </form>
 
 {% endblock %}
