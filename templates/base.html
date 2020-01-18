@@ -1,22 +1,30 @@
-<!DOCTYPE html>
+{% load static %}<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Neelkanth Gaming</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-	<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-show-password/1.0.3/bootstrap-show-password.min.js"></script>
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
 </head>
 <body>
-<a class="nav-link" href="{% url 'home' %}">Home</a>
-<a class="nav-link" href="{% url 'games_list' %}">Games</a>
-<a class="nav-link" href="{% url 'video_list' %}">Videos</a>
-<a class="nav-link" href="{% url 'jobs' %}">Jobs</a>
-<a class="nav-link" href="{% url 'communications' %}">Contact Us</a>
+       <div class="all">
+        <nav class="navbar navbar-inverse navbar-dark" id="nav">
+        <a href="#" class="navbar-brand text-warning">LOGO</a>
+                <div class="navbar nav ml-auto">
+<a class="nav-link text-white btn" href="{% url 'home' %}">Home</a>
+<a class="nav-link text-white btn" href="{% url 'games_list' %}">Games</a>
+<a class="nav-link text-white btn" href="{% url 'video_list' %}">Videos</a>
+<a class="nav-link text-white btn" href="{% url 'jobs' %}">Jobs</a>
+<a class="nav-link text-white btn" href="{% url 'communications' %}">Contact Us</a>
+</div>
+</nav>
+<div class="container bg-info text-white" id="login_animation">
+    <br>
+    <p>Login and get more features on Neelkanth games</p>
+<button id="login" class="btn btn-default">Login</button><br>
+<br>
+</div>
 {% if not user.is_authenticated %}
         {% if messages %}
         <div class="alert alert-warning alert-dismissible">
@@ -28,26 +36,59 @@
             </ul>
         </div>
         {% endif %}
+        <div class="container col-md-4 col-md-offset-4" id="login_form">
+            <br>
+            <a href="#" class="close float-right" id="close" data-dismiss="#login_form" aria-label="close">&times;</a>
+
+          <center>  <p class="display-4">Login </p></center>
 <form method = "post" action="{% url 'user_login' %}">
     {% csrf_token %}
     <div class="form-group">
-        <input type="text" name="username" placeholder="Username" class="form-control">
+        <input type="text" name="username" placeholder="Username" class="form-control"><br>
         <input type="password" id="password" name="password" class="form-control" data-toggle="password" placeholder="Password">
     </div>
     <input type="hidden" name="next" value="{{ request.path }}">
-    <input type="submit" name="" value="Login">
+    <input type="submit" name="" value="Login" class="text-black btn btn-primary">
 </form>
-<a class="nav-link" href="{% url 'user_register' %}">Register</a>
+<center><a class="nav-link" href="{% url 'user_register' %}" class="text-white btn btn-info">Register</a></center>
 {% else %}
-<a class="nav-link" href="{% url 'user_logout' %}">Logout</a>
+<a class="nav-link" href="{% url 'user_logout' %}" class="text-black btn btn-default">Logout</a>
 {% endif %}
+<br>
+</div>
+<br>
+</div>
+
 {% if user.is_authenticated %}
 Hey {{ user.username }}
 {% endif %}
 {% block content %}
 {% endblock %}
+
+</div>  
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.0/anime.min.js"></script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-show-password/1.0.3/bootstrap-show-password.min.js"></script>
 <script type="text/javascript">
+    $('document').ready(function(){
 	$("#password").password('toggle');
+$('#login').click(function () {
+    $('#login_form').show(1000);
+    $('#register_form,.reg').hide(1000);
+    $('#login_animation').hide(1000);
+    $('#home').hide(1000);
+
+})
+$('#close').click(function(){
+    $('#register_form,.reg').show(1000);
+    $('#login_form').hide(1000);
+    $('#login_animation').show(1000);
+    $('#home').show(1000);
+})
+
+})
+  
 </script>
 </body>
 </html>

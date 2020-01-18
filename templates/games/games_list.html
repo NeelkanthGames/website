@@ -4,4 +4,100 @@
 
 <h4>At Games List page </h4>
 <p>Contains List of games with embedded urls for details as well as 3d view of individual games </p>
+
+<div class="container" id="gamelist_animate">
+	<div class="row">
+		<div class="col">
+			<img src="img/game2.png">
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+			tempor incididunt ut labore et dolore magna aliqua.</p><br>
+		</div>
+
+		<div class="col">
+			<img src="img/game1.png">
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+			tempor incididunt ut labore et dolore magna aliqua.</p><br>
+		</div>
+
+		<div class="col">
+			<img src="img/game4.png">
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+			tempor incididunt ut labore et dolore magna aliqua.</p><br>
+		</div>
+
+		<div class="col">
+			<img src="img/game3.png">
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+			tempor incididunt ut labore et dolore magna aliqua.</p><br>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col">
+			<img src="img/game5.png">
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+			tempor incididunt ut labore et dolore magna aliqua.</p><br>
+		</div>
+
+		<div class="col">
+			<img src="img/game6.png" class="responsive">
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+			tempor incididunt ut labore et dolore magna aliqua.</p><br>
+		</div>
+
+		<div class="col">
+			<img src="img/game7.png" class="responsive">
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+			tempor incididunt ut labore et dolore magna aliqua.</p><br>
+		</div>
+
+		<div class="col">
+			<img src="img/game8.png" class="responsive" >
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+			tempor incididunt ut labore et dolore magna aliqua.</p><br>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col">
+			<img src="img/game1.png" class="responsive">
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+			tempor incididunt ut labore et dolore magna aliqua.</p><br>
+		</div>
+
+		<div class="col">
+			<img src=" img/game2.png">
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+			tempor incididunt ut labore et dolore magna aliqua.</p><br>
+		</div>
+
+		<div class="col">
+			<img src="img/game3.png">
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+			tempor incididunt ut labore et dolore magna aliqua.</p><br>
+		</div>
+
+		<div class="col">
+			<img src="img/game4.png">
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+			tempor incididunt ut labore et dolore magna aliqua.</p><br>
+		</div>
+	</div>
+</div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.2.0/anime.min.js"></script>
+<script>
+	anime({
+		target:'#gamelist_animate',
+keyframes: [
+{translateY: -70},
+{translateX: 40},
+{translateY: -70},
+],
+duration: 4000,
+  easing: 'easeOutElastic(1, .8)',
+  loop: true
+	})
+</script>
+
 {% endblock %}

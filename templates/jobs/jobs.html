@@ -13,4 +13,131 @@ Message
 Skills
 Expected CTC
 </p>
+
+<div class="container block" id="Job_list">
+	<div class="row">
+		<div class="col" id="block">
+			<h1>JOB1</h1>
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+			tempor incididunt ut labore et dolore magna aliqua.</p>
+			<br>
+			<button onclick='apply()' class="btn btn-default text-black">Apply Now</button>
+		</div>
+
+		<div class="col" id="block">
+			<h1>JOB1</h1>
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+			tempor incididunt ut labore et dolore magna aliqua.</p>
+			<br>
+			<button onclick='apply()' class="btn btn-default text-black">Apply Now</button>
+		</div>
+
+		<div class="col" id="block">
+			<h1>JOB1</h1>
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+			tempor incididunt ut labore et dolore magna aliqua.</p>
+			<br>
+			<button onclick='apply()' class="btn btn-default text-black">Apply Now</button>
+		</div>
+
+		<div class="col" id="block">
+			<h1>JOB1</h1>
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+			tempor incididunt ut labore et dolore magna aliqua.</p>
+			<br>
+			<button onclick='apply()' class="btn btn-default text-black">Apply Now</button>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col" id="block">
+			<h1>JOB1</h1>
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+			tempor incididunt ut labore et dolore magna aliqua.</p>
+			<br>
+			<button onclick='apply()' class="btn btn-default text-black">Apply Now</button>
+		</div>
+
+		<div class="col" id="block">
+			<h1>JOB1</h1>
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+			tempor incididunt ut labore et dolore magna aliqua.</p>
+			<br>
+			<button onclick='apply()' class="btn btn-default text-black">Apply Now</button>
+		</div>
+
+		<div class="col" id="block">
+			<h1>JOB1</h1>
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+			tempor incididunt ut labore et dolore magna aliqua.</p><br>
+		<button onclick='apply()' class="btn btn-default text-black">Apply Now</button>
+		</div>
+
+		<div class="col" id="block">
+			<h1>JOB1</h1>
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+			tempor incididunt ut labore et dolore magna aliqua. </p>
+			<br>
+			<button onclick='apply()' class="btn btn-default text-black">Apply Now</button>
+		</div>
+	</div>
+
+
+</div>
+<div class="container col-md-4 col-md-offset-4" id="job_reg">
+	<center><h4>Apply Now!!</h4></center>
+	<hr>
+	<form action=""  method="post" enctype="multipart/form-data" novalidate>
+
+		<label for="fullname">Fullname:</label>
+		<input type="text" name="fullname" class="form-control" /><br>
+
+		<label for="location">Location:</label>
+		<input type="location" name="location" class="form-control" /><br>
+
+		<label for="email">Email: </label>
+		<input type="email" name="email" class="form-control" /><br>
+
+		<label for="field">Your Fields</label>
+		<select name="field" id="field">
+			<option value="Job">1</option>
+			<option value="Job">2</option>
+			<option value="Job">3</option>
+			<option value="Job">4</option>
+			<option value="Job">5</option>
+			<option value="Job">6</option>
+		</select>
+
+<label for="year">Years of experience: </label>
+		<input type="number" name="year" class="form-control" /><br>
+
+		<label for="experience">Your experience: </label>
+<textarea name="experience" id="" cols="30" rows="10"></textarea>
+
+	</form>
+	<input type="submit" class="btn d-block col-8 mt-2 mx-auto" name="jobSubmit">
+</div>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.0/anime.min.js"></script>
+<script type="text/javascript">
+	document.getElementById('login_animation').style.display = 'none';
+	apply = () =>{
+	setTimeout(2000);
+$('#Job_list').hide(1000);
+document.getElementById('Job_list').style.display = 'none';
+$('#job_reg').show(1000);
+document.getElementById('job_reg').style.display = 'block';
+	}
+	var slideup = anime({
+		target: ['.container'],
+		translateY: '50hv',
+		scale : {
+			duration: 100,
+		delay: 1200,
+		easing: 'easeOutQuad'
+		},
+offset:0
+	})
+</script>
 {% endblock %}
