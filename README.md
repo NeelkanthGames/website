@@ -24,7 +24,7 @@ pip install virtualenv
 Once the initial setup is completed, create a virtual environment and once done, activate it.
 ```
 virtualenv venv
-venv\Script\activate
+venv\Scripts\activate
 ```
 
 At this point, you will have two folders
