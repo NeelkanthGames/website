@@ -9,12 +9,19 @@ cryptography==2.1.4
 cupshelpers==1.0
 defer==1.0.6
 distro-info===0.18ubuntu0.18.04.1
+<<<<<<< HEAD
 dj-database-url==0.5.0
 Django==3.0.2
 django-bootstrap3==12.0.3
 django-countries==5.5
 django-crispy-forms==1.8.1
 django-heroku==0.3.1
+=======
+Django==3.0.1
+django-bootstrap3==12.0.3
+django-countries==5.5
+django-crispy-forms==1.8.1
+>>>>>>> f362f27708c3d655019ad0dc166af78c1edf270a
 django-widget-tweaks==1.4.5
 djangorestframework==3.11.0
 gunicorn==20.0.4
@@ -66,6 +73,9 @@ urllib3==1.22
 usb-creator==0.3.3
 virtualenv==16.7.9
 wadllib==1.3.2
+<<<<<<< HEAD
 whitenoise==5.0.1
+=======
+>>>>>>> f362f27708c3d655019ad0dc166af78c1edf270a
 xkit==0.0.0
 zope.interface==4.3.2
