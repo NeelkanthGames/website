@@ -22,12 +22,11 @@ def communications(request):
 
             try:
                 title = "("+category+")"+" "+subject
-                # send_mail(title,message,from_email,['mdas.160395@gmail.com'])
                 email = EmailMessage(
                     title,
                     message,
                     from_email,
-                    ['mdas.160395@gmail.com'],
+                    ['mdas.160395@gmail.com','neelkanthgames777@gmail.com'],
                     reply_to=[from_email],
                 )
                 email.send()

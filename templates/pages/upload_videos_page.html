@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load bootstrap3 %}
+{% bootstrap_messages %}
+{% block content %}
+
+
+<center><h3 class="reg ">Upload Video</h3></center>
+<div class="container">
+    <div class="row">
+        <div class="col-md-4 col-md-offset-4" id="register_form">
+
+             <form action="" method="post" enctype="multipart/form-data" novalidate><input type='hidden'/>
+                {%csrf_token %}
+                 {% bootstrap_field video_upload_form.title show_label=False %}
+                 {% bootstrap_field video_upload_form.videofile show_label=False %}
+                 {% bootstrap_field video_upload_form.desc show_label=False %}
+                 {% bootstrap_field video_upload_form.active_flag label="Show in homepage?" %}
+                 <input type="hidden" name="next" value="{{ request.path }}">
+                 <div class="form-group">
+                    <button type="submit" class="btn btn-default ">Submit</button>
+                 </div>
+             </form>
+        </div>
+    </div>
+    <br>
+</div>
+
+{% endblock %}

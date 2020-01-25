@@ -26,13 +26,14 @@
                     <a class="nav-link text-white btn" href="{% url 'communications' %}">Contact Us</a>
                 </div>
         </nav>
-        <div class="container bg-info text-white" id="login_animation">
+
+        {% if not user.is_authenticated %}
+           <div class="container bg-info text-white" id="login_animation">
             <br>
             <p>Login and get more features on Neelkanth games</p>
             <button id="login" class="btn btn-default">Login</button><br>
             <br>
-        </div>
-        {% if not user.is_authenticated %}
+            </div>
                 {% if messages %}
                 <div class="alert alert-warning alert-dismissible">
                     <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
@@ -58,15 +59,16 @@
             </form>
 <center><a class="nav-link" href="{% url 'user_register' %}" class="text-white btn btn-info">Register</a></center>
 {% else %}
-<a class="nav-link" href="{% url 'user_logout' %}" class="text-black btn btn-default">Logout</a>
+    <a class="nav-link" href="{% url 'upload_videos' %}" class="text-black btn btn-default">Upload Videos</a>
+    <a class="nav-link" href="{% url 'user_logout' %}" class="text-black btn btn-default">Logout</a>
 {% endif %}
 <br>
 </div>
 <br>
 </div>
 
-{% if user.is_authenticated %}
-Hey {{ user.username }}
+{% if user.is_authenticated and account.full_name is not None  %}
+Hey {{ account.full_name }}
 {% endif %}
 {% block content %}
 {% endblock %}
