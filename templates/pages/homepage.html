@@ -4,11 +4,17 @@
 {% block content %}
     <div id="home" class="container">
         <h4>At home page </h4>
+        <h2>Current Project</h2>
+            <h5>{{ currentProject.title }}</h5>
+            <p>{{ currentProject.desc  }}</p>
+        {% for images in currentProjectImages %}
+            <img src="{{ images.image.url }}">
+        {% endfor %}
         <h2>Trailers and highlights</h2>
             {% for video in videos %}
                 <h4>{{ video.title }}</h4>
                 <video width="400" controls>
-                    <source src="{{ MEDIA_URL }}{{ video.videofile }}" type="video/mp4" >
+                    <source src="{{ video.videofile.url }}" type="video/mp4" >
                     Your browser does not support the video tag.
                 </video>
                 <p>{{ video.desc }}</p>
