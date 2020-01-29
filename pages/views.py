@@ -55,8 +55,11 @@ def upload_current_project(request):
         image_form = CurrentProjectImageForm(request.POST,request.FILES)
         images = request.FILES.getlist('image')
         if projectForm.is_valid() and image_form.is_valid():
-            CurrentProject.objects.all().delete()
-            CurrentProjectImages.objects.all().delete()
+            try:
+                CurrentProject.objects.all().delete()
+                CurrentProjectImages.objects.all().delete()
+            except:
+                pass
             instance = projectForm.save(commit=False)
             instance.title = request.POST.get('title')
             instance.save()
