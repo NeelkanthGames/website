@@ -71,7 +71,10 @@ def upload_current_project(request):
             return render(request, 'pages/upload_current_project.html',
                           {'currentProjectForm': projectForm,
                            'imageForm': image_form})
-    currentProject = CurrentProject.objects.get()
+    try:
+        currentProject = CurrentProject.objects.get()
+    except:
+        currentProject = None
     return render(request, 'pages/upload_current_project.html',
                   {'currentProjectForm': CurrentProjectForm(initial={'title':currentProject.title,'desc':currentProject.desc}),
                    'imageForm': CurrentProjectImageForm()}
