@@ -11,9 +11,16 @@ def index_landing_page(request):
 
 
 def homepage(request):
-    currentProject = CurrentProject.objects.get()
-    currentProjectImages = CurrentProjectImages.objects.filter(title=currentProject)
-    videos = Videos.objects.filter(active_flag=True).order_by('-created_date')
+    try:
+        currentProject = CurrentProject.objects.get()
+        currentProjectImages = CurrentProjectImages.objects.filter(title=currentProject)
+    except:
+        currentProject = None
+        currentProjectImages = None
+    try:
+        videos = Videos.objects.filter(active_flag=True).order_by('-created_date')
+    except:
+        videos = None
     if request.user.is_authenticated:
         try:
             account = UserProfileInfo.objects.get(user=request.user)
