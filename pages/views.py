@@ -74,7 +74,7 @@ def upload_current_project(request):
     try:
         currentProject = CurrentProject.objects.get()
     except:
-        currentProject = eCurrentProject.objects.none()
+        currentProject = CurrentProject.objects.none()
         currentProject.title = None
         currentProject.desc = None
     return render(request, 'pages/upload_current_project.html',
