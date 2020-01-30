@@ -7,7 +7,7 @@ from .forms import VideosToUploadForm, CurrentProjectForm, CurrentProjectImageFo
 
 
 def index_landing_page(request):
-    return render(request,'pages/index_landing_page.html')
+    return homepage(request)
 
 
 def homepage(request):
