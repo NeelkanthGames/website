@@ -1,0 +1,8 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<a class="nav-link" href="{% url 'upload_videos' %}" class="text-black btn btn-default">Upload Videos</a>
+<a class="nav-link" href="{% url 'upload_current_project' %}" class="text-black btn btn-default">Upload Current Project</a>
+<a class="nav-link" href="{% url 'upload_news' %}" class="text-black btn btn-default">Upload News</a>
+{% endblock %}

@@ -3,7 +3,7 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from .forms import UserProfileInfoForm, UserForm
 from django.contrib import messages
-
+import pages.views as pages_v
 urls_to_avoid = ('/user_login/','/user_register/','/user_logout/')
 
 # Create your views here.
@@ -17,19 +17,20 @@ def user_login(request):
                 login(request,user)
                 next = request.POST.get('next','/')
                 if next in urls_to_avoid:
-                    return render(request,r'pages/homepage.html')
+                    return pages_v.homepage(request)
                 return HttpResponseRedirect(next)
             else:
                 messages.error(request, 'Account has been inactivated', extra_tags='login')
                 next = request.POST.get('next', '/')
                 if next in urls_to_avoid:
-                    return render(request,r'pages/homepage.html')
+                    return pages_v.homepage(request)
                 return HttpResponseRedirect(next)
         else:
             messages.error(request, 'Invalid credentials',extra_tags='login')
             next = request.POST.get('next', '/')
+            print(next)
             if next in urls_to_avoid:
-                return render(request,r'pages/homepage.html')
+                return pages_v.homepage(request)
             return HttpResponseRedirect(next)
     else:
         return render(request,'pages/homepage.html')
@@ -48,8 +49,9 @@ def user_registration(request):
             profile.save()
             login(request,user)
             next = request.POST.get('next', '/')
+            print (next)
             if next in urls_to_avoid:
-                return render(request,r'pages/homepage.html')
+                return pages_v.homepage(request)
             return HttpResponseRedirect(next)
         else:
             messages.error(request,'Profile not created.', extra_tags='register')
@@ -61,4 +63,4 @@ def user_registration(request):
 
 def user_logout(request):
     logout(request)
-    return render(request,'pages/homepage.html')
+    return pages_v.homepage(request)

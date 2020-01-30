@@ -123,3 +123,6 @@ def upload_reviews(request):
     else:
         return render(request,'pages/upload_reviews.html',
                       {'reviewsForm':ReviewsForm(initial={'full_name':full_name})})
+
+def manage_website(request):
+    return render(request,'pages/manage_website.html')
