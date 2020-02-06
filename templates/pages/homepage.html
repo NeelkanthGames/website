@@ -3,16 +3,52 @@
 
 {% block content %}
     <div id="home" class="container">
-        <h4>At home page </h4>
-        <h2>Current Project</h2>
-            <h5>{{ currentProject.title }}</h5>
-            <p>{{ currentProject.desc  }}</p>
-        {% for images in currentProjectImages %}
-            <img src="{{ images.image.url }}">
-        {% endfor %}
-        <h2>About our company</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam nec sapien a neque fermentum feugiat. Vivamus pellentesque velit at ante mattis, eget dictum tellus tempus. In sit amet turpis ante. Cras et diam fringilla, sollicitudin ipsum ut, malesuada sem. Integer mollis gravida ultrices. Maecenas lorem eros, scelerisque ac volutpat nec, cursus sed metus. Praesent porttitor fringilla mi, in hendrerit elit consectetur nec. Nulla pellentesque venenatis nisl a tempor. Sed imperdiet ullamcorper sem, finibus ultrices ante placerat eget. Proin sed nibh purus. Aliquam vel dictum mi, sed tincidunt lectus. Morbi leo ipsum, finibus in augue in, euismod scelerisque lectus. Nulla auctor tempor ipsum, non semper elit rhoncus vel. Mauris massa orci, fermentum iaculis commodo vel, maximus quis diam. </p>
-        <h2>Trailers and highlights</h2>
+        <h2 class="section-header" >Current Project</h2>
+        <div class="card text-center">
+            <div class="card-body ">
+
+                <div class="row">
+                    <div class="col">
+                        <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                            <div class="carousel-inner">
+                                {% for images in currentProjectImages %}
+                                {% if forloop.counter == 1 %}
+                                    <div class="item active">
+                                {% else %}
+                                    <div class="item">
+                                {% endif %}
+                                        <img class="d-block w-100 h-50" src="{{ images.image.url }}" >
+                                    </div>
+                                {% endfor %}
+                            </div>
+                                <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                    <span class="sr-only">Previous</span>
+                                </a>
+                                <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                    <span class="sr-only">Next</span>
+                                </a>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="row">
+                            <h5 class="card-title border-bottom">{{ currentProject.title }}</h5>
+                        </div>
+                        <div class="row">
+                            <p class="card-text" id="project-card-text">{{ currentProject.desc  }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-banner">
+            <h2>About our company</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam nec sapien a neque fermentum feugiat. Vivamus pellentesque velit at ante mattis, eget dictum tellus tempus. In sit amet turpis ante. Cras et diam fringilla, sollicitudin ipsum ut, malesuada sem. Integer mollis gravida ultrices. Maecenas lorem eros, scelerisque ac volutpat nec, cursus sed metus. Praesent porttitor fringilla mi, in hendrerit elit consectetur nec. Nulla pellentesque venenatis nisl a tempor. Sed imperdiet ullamcorper sem, finibus ultrices ante placerat eget. Proin sed nibh purus. Aliquam vel dictum mi, sed tincidunt lectus. Morbi leo ipsum, finibus in augue in, euismod scelerisque lectus. Nulla auctor tempor ipsum, non semper elit rhoncus vel. Mauris massa orci, fermentum iaculis commodo vel, maximus quis diam. </p>
+        </div>
+        <div class="section-banner">
+            <h2>Trailers and highlights</h2>
             {% for video in videos %}
                 <h4>{{ video.title }}</h4>
                 <video width="400" controls>
@@ -21,22 +57,27 @@
                 </video>
                 <p>{{ video.desc }}</p>
             {% endfor %}
-        <h2>News</h2>
-            {% for item in news %}
-                <h4>{{ item.title }}</h4>
-                <p>{{ item.body }}</p>
-            {% endfor %}
-        <h2>Reviews</h2>
-            {% for item in reviews %}
-                <h4>{{ item.full_name }}</h4>
-                {% if item.organisation %}
-                    <p>{{ item.organisation }}</p>
-                {% endif %}
-                <p>{{ item.body }}</p>
-            {% endfor %}
-        {% if user.is_authenticated %}
-            <a class="nav-link" href="{% url 'upload_reviews' %}" class="text-black btn btn-default">Leave a Review</a>
-        {% endif %}
+        </div>
+        <div class="section-banner">
+            <h2>News</h2>
+                {% for item in news %}
+                    <h4>{{ item.title }}</h4>
+                    <p>{{ item.body }}</p>
+                {% endfor %}
+        </div>
+        <div class="section-banner">
+            <h2>Reviews</h2>
+                {% for item in reviews %}
+                    <h4>{{ item.full_name }}</h4>
+                    {% if item.organisation %}
+                        <p>{{ item.organisation }}</p>
+                    {% endif %}
+                    <p>{{ item.body }}</p>
+                {% endfor %}
+            {% if user.is_authenticated %}
+                <a class="nav-link" href="{% url 'upload_reviews' %}" class="text-black btn btn-default">Leave a Review</a>
+            {% endif %}
+        </div>
     </div>
 
 {% endblock %}

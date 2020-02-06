@@ -11,14 +11,14 @@ def index_landing_page(request):
 
 
 def homepage(request):
-    if request.user.is_authenticated:
-        try:
-            account = UserProfileInfo.objects.get(user=request.user)
-            print(account.full_name)
-        except:
-            account = "NULL"
-    else:
-        account = "NULL"
+    # if request.user.is_authenticated:
+    #     try:
+    #         account = UserProfileInfo.objects.get(user=request.user)
+    #         print(account.full_name)
+    #     except:
+    #         account = "NULL"
+    # else:
+    #     account = "NULL"
     try:
         currentProject = CurrentProject.objects.get()
         currentProjectImages = CurrentProjectImages.objects.filter(title=currentProject)
@@ -42,7 +42,7 @@ def homepage(request):
         'currentProject': currentProject,
         'currentProjectImages': currentProjectImages,
         'videos': videos,
-        'account': account,
+        # 'account': account,
         'news': news,
         'reviews': reviews
     }

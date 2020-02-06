@@ -12,19 +12,25 @@
 	<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-show-password/1.0.3/bootstrap-show-password.min.js"></script>
     <link href="https://fonts.googleapis.com/css?family=PT+Sans+Narrow" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Arvo&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'css/base.css' %}">
 </head>
 <body>
        <div class="all">
         <nav class="navbar navbar-inverse navbar-dark" id="nav">
-        <a href="#" class="navbar-brand text-warning">LOGO</a>
+        <!-- <a href="#" class="navbar-brand text-warning">LOGO</a> -->
+            <a class="navbar-brand" href="#">
+                 <img src="{% static 'image_assets/logov01.png' %}" id="logo" class="d-inline-block align-top">
+             </a>
+
+                <h3 id="logo-name">Neelkanth Games</h3>
                 <div class="navbar nav ml-auto">
                     <a class="nav-link text-white btn" href="{% url 'home' %}">Home</a>
                     <a class="nav-link text-white btn" href="{% url 'games_list' %}">Games</a>
                     <a class="nav-link text-white btn" href="{% url 'jobs' %}">Jobs</a>
                     <a class="nav-link text-white btn" href="{% url 'communications' %}">Contact Us</a>
                     {% if user.is_authenticated %}
-                        {% if account.user_type is not "user" %}
+                        {% if account.user_type != 'user' %}
                             <a class="nav-link text-white btn" href="{% url 'manage_website' %}">Manage Website</a>
                         {% endif %}
                         <a class="nav-link text-white btn" href="{% url 'user_logout' %}">Logout</a>
@@ -69,9 +75,7 @@
     <br>
     </div>
 
-{% if user.is_authenticated and account.full_name is not None  %}
-Hey {{ account.full_name }}
-{% endif %}
+{# {{ account.full_name }} #}
 {% block content %}
 {% endblock %}
 
